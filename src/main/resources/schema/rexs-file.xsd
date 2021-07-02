@@ -125,10 +125,11 @@
 	</xsd:element>
 
 	<xsd:element name="array">
-		<xsd:complexType>
+		<xsd:complexType mixed="true">
 			<xsd:sequence>
-				<xsd:element name="c" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
+				<xsd:element ref="c" minOccurs="0" maxOccurs="unbounded"/>
 			</xsd:sequence>
+			<xsd:attribute name="code" type="arrayCodeType" use="optional"/>
 		</xsd:complexType>
 	</xsd:element>
 
@@ -147,6 +148,18 @@
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
+
+	<xsd:element name="c">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="c"></xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:simpleType name="c">
+		<xsd:restriction base="xsd:string"/>
+	</xsd:simpleType>
 
 	<xsd:element name="load_spectrum">
 		<xsd:complexType>
@@ -178,5 +191,13 @@
 			</xsd:sequence>
 		</xsd:complexType>
 	</xsd:element>
+
+	<xsd:simpleType name="arrayCodeType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="int32"/>
+			<xsd:enumeration value="float64"/>
+			<xsd:enumeration value="float32"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 
 </xsd:schema>

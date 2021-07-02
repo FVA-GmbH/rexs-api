@@ -302,6 +302,21 @@ public class RexsComponent implements Comparable<RexsComponent> {
 	}
 
 	/**
+	 * Creates a new attribute with a integer array value and adds it to the component.
+	 * <p>
+	 * If the component already has an attribute with the attribute ID, then the existing attribute is replaced by the new attribute.
+	 *
+	 * @param attributeId
+	 * 				The ID of the new attribute as {@link RexsAttributeId}.
+	 * @param arrayValues
+	 * 				The value of the new attribute as {@link int[]}.
+	 */
+	public void addAttribute(RexsAttributeId attributeId, int[] arrayValues) {
+		RexsAttribute attribute = createAndAddAttribute(attributeId);
+		attribute.setIntegerArrayValue(arrayValues);
+	}
+
+	/**
 	 * Creates a new attribute with a floating point array value and adds it to the component.
 	 * <p>
 	 * If the component already has an attribute with the attribute ID, then the existing attribute is replaced by the new attribute.
@@ -312,6 +327,36 @@ public class RexsComponent implements Comparable<RexsComponent> {
 	 * 				The value of the new attribute as {@link Double[]}.
 	 */
 	public void addAttribute(RexsAttributeId attributeId, Double[] arrayValues) {
+		RexsAttribute attribute = createAndAddAttribute(attributeId);
+		attribute.setDoubleArrayValue(arrayValues);
+	}
+
+	/**
+	 * Creates a new attribute with a floating point array value and adds it to the component.
+	 * <p>
+	 * If the component already has an attribute with the attribute ID, then the existing attribute is replaced by the new attribute.
+	 *
+	 * @param attributeId
+	 * 				The ID of the new attribute as {@link RexsAttributeId}.
+	 * @param arrayValues
+	 * 				The value of the new attribute as {@link float[]}.
+	 */
+	public void addAttribute(RexsAttributeId attributeId, float[] arrayValues) {
+		RexsAttribute attribute = createAndAddAttribute(attributeId);
+		attribute.setDoubleArrayValue(arrayValues);
+	}
+
+	/**
+	 * Creates a new attribute with a floating point array value and adds it to the component.
+	 * <p>
+	 * If the component already has an attribute with the attribute ID, then the existing attribute is replaced by the new attribute.
+	 *
+	 * @param attributeId
+	 * 				The ID of the new attribute as {@link RexsAttributeId}.
+	 * @param arrayValues
+	 * 				The value of the new attribute as {@link double[]}.
+	 */
+	public void addAttribute(RexsAttributeId attributeId, double[] arrayValues) {
 		RexsAttribute attribute = createAndAddAttribute(attributeId);
 		attribute.setDoubleArrayValue(arrayValues);
 	}
